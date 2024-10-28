@@ -1,0 +1,20 @@
+/* General body and main container styles */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden; /* Evita scroll horizontal en todo el body */
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #e9ecef;
+  padding: 20px;
+  max-width: 100%; /* Evita desbordamiento horizontal */
+  overflow-x: hidden; /* Oculta cualquier posible desbordamiento horizontal */
+}

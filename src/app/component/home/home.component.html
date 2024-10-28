@@ -1,0 +1,33 @@
+<div class="container" ngSkipHydration>
+    
+  
+    <h2>{{ isEditing ? 'Editar Tarea' : 'Agregar Tarea' }}</h2>
+    <form (ngSubmit)="isEditing ? updateTask() : addTask()" class="task-form">
+      <label>
+        Título:
+        <input type="text" [(ngModel)]="taskData.title" name="title" required />
+      </label>
+      <label>
+        Descripción:
+        <input type="text" [(ngModel)]="taskData.description" name="description" required />
+      </label>
+      <label class="checkbox-label">
+        Completada:
+        <input type="checkbox" [(ngModel)]="taskData.completed" name="completed" />
+      </label>
+      <button type="submit" class="submit-btn">{{ isEditing ? 'Actualizar' : 'Agregar' }}</button>
+    </form>
+    <h1>Lista de Tareas</h1>
+  
+    <ul class="task-list">
+      <li *ngFor="let task of tasks" class="task-item">
+        <span class="task-title">{{ task.title }}</span>
+        <span class="task-status" [ngClass]="task.completed ? 'completed' : 'pending'">
+          {{ task.completed ? '✔ Completada' : '✖ Pendiente' }}
+        </span>
+        <button (click)="editTask(task)" class="edit-btn">Editar</button>
+        <button (click)="deleteTask(task.id!)" class="delete-btn">Eliminar</button>
+      </li>
+    </ul>
+  </div>
+  
